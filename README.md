@@ -17,19 +17,40 @@ A comprehensive test automation framework built with Java, Selenium, Appium, and
 
 ## 🛠️ Technology Stack
 
-- **Java 11**
-- **Selenium WebDriver 3.141.59**
-- **Appium Java Client 8.3.0**
-- **REST Assured 5.2.0**
-- **JUnit 5**
+### Core Testing Frameworks
+- **Java 21**
+- **Selenium WebDriver 4.35.0**
+- **Appium Java Client 10.0.0**
+- **REST Assured 5.5.6**
+- **JUnit 5 (5.13.4)**
 - **TestNG**
-- **Maven**
-- **ExtentReports 5.0.8**
-- **Lombok**
-- **Jackson**
-- **AssertJ**
-- **WebDriverManager**
-- **JavaFaker**
+
+### Build & Dependency Management
+- **Maven 3.6+**
+- **Maven Surefire Plugin 3.0.0-M5**
+- **Maven Checkstyle Plugin 3.2.0**
+
+### Reporting & Utilities
+- **ExtentReports 5.1.2**
+- **AssertJ 3.27.6**
+- **JavaFaker 1.0.2**
+
+### Configuration & Data Management
+- **Owner Library 1.0.12** - Configuration management
+- **Jackson 2.13.1** - JSON processing
+- **Fixture Factory 3.1.0** - Test data generation
+- **Reflections 0.10.2** - Runtime reflection
+
+### Code Quality & Utilities
+- **Lombok 1.18.42** - Boilerplate reduction
+- **Awaitility 4.3.0** - Asynchronous testing
+- **NoException 1.9.1** - Functional error handling
+
+### Cloud Platforms
+- **BrowserStack** - Mobile testing
+- **SauceLabs** - Cross-browser testing
+- **Selenium Grid** - Local/remote execution
+- **Selenoid** - Docker-based Selenium
 
 ## 📁 Project Structure
 
@@ -276,6 +297,48 @@ The framework generates detailed test reports using ExtentReports. Reports are a
 ## 📝 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🚨 Troubleshooting
+
+### Common Issues
+
+#### 1. Checkstyle Violations
+If you encounter Checkstyle errors during build:
+```bash
+# Check for specific violations
+mvn checkstyle:check
+
+# Common fixes:
+# - Add whitespace after typecast: ((Type) (object))
+# - Remove unused imports
+# - Fix indentation and formatting
+```
+
+#### 2. Lombok Compatibility Issues
+If you see `NoSuchFieldError` related to `JCTree$JCImport`:
+- **Issue**: Lombok version incompatibility with Java version
+- **Solution**: Update Lombok to version 1.18.24 or higher for Java 11+ compatibility
+
+#### 3. Build Failures
+```bash
+# Skip checkstyle temporarily for testing
+mvn test -Dcheckstyle.skip=true
+
+# Clean and rebuild
+mvn clean compile test
+```
+
+### Prerequisites Verification
+```bash
+# Check Java version
+java -version
+
+# Check Maven version
+mvn -version
+
+# Verify Lombok compatibility
+mvn dependency:tree | grep lombok
+```
 
 ## 🆘 Support
 

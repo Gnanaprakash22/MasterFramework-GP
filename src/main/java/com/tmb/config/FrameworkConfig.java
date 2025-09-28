@@ -31,6 +31,9 @@ public interface FrameworkConfig extends Config {
   @Key("${environment}.webUrl")
   String webUrl();
 
+  @Key("${environment}.timeOut")
+  long timeOut();
+
   @DefaultValue("CHROME")
   @ConverterClass(StringToBrowserTypeConverter.class)
   BrowserType browser();

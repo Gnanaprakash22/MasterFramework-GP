@@ -7,9 +7,9 @@ import static com.tmb.utils.PageActionsHelper.waitAndSendKeys;
 
 public class LoginPage {
 
-  private static final By USER_NAME_TEXT_BOX = By.id("txtUsername");
-  private static final By PASSWORD_TEXT_BOX = By.id("txtPassword");
-  private static final By LOGIN_BUTTON = By.id("btnLogin");
+  private static final By USER_NAME_TEXT_BOX = By.cssSelector("input[name='username']");
+  private static final By PASSWORD_TEXT_BOX = By.cssSelector("input[name='password']");
+  private static final By LOGIN_BUTTON = By.cssSelector("button[type='submit']");
 
   private LoginPage setUserNameTextBox(String userName) {
     waitAndSendKeys(USER_NAME_TEXT_BOX, userName);

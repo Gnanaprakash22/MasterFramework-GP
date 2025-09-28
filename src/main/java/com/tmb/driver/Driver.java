@@ -6,6 +6,7 @@ import com.tmb.driver.factory.DriverFactory;
 import com.tmb.enums.MobilePlatformType;
 import org.openqa.selenium.WebDriver;
 
+import java.time.Duration;
 import java.util.Objects;
 
 import static com.tmb.config.factory.ConfigFactory.getConfig;
@@ -27,7 +28,17 @@ public final class Driver {
   }
 
   public static void loadURL() {
-    DriverManager.getDriver().get(getConfig().webUrl());
+    WebDriver driver = DriverManager.getDriver();
+    setPageLoadConfigurations();
+    driver.get(getConfig().webUrl());
+  }
+
+  public static void setPageLoadConfigurations() {
+    WebDriver driver = DriverManager.getDriver();
+    driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(getConfig().timeOut()));
+    driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(getConfig().timeOut()));
+    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(getConfig().timeOut()));
+    driver.manage().window().maximize();
   }
 
   public static void initDriverForMobile(MobilePlatformType mobilePlatformType) {

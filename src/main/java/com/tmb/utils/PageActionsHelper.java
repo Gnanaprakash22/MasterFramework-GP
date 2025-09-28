@@ -116,6 +116,6 @@ public class PageActionsHelper {
       .addAction(finger.createPointerMove(Duration.ofMillis(300), PointerInput.Origin.viewport(), endX, endY))
       .addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
 
-    ((AppiumDriver)(DriverManager.getDriver())).perform(Collections.singletonList(sequence));
+    ((AppiumDriver) (DriverManager.getDriver())).perform(Collections.singletonList(sequence));
   }
 }
