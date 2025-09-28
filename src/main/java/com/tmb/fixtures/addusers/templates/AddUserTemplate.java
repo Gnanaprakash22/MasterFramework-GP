@@ -11,7 +11,7 @@ public class AddUserTemplate implements TemplateLoader {
   public void load() {
     Fixture.of(UserData.class).addTemplate("valid", new Rule() {{
         add("userRole", random("ESS", "Admin"));
-        add("employeeName", uniqueRandom("Aaliyah Haq", "Admin A", "Amuthan"));
+        add("employeeName", uniqueRandom("Aaliyah Haq", "Admin A", "GP"));
         add("userName", random("abcdef1234"));
         add("status", random("Enabled", "Disabled"));
         add("password", random("Password@123"));

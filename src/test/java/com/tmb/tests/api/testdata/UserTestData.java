@@ -14,7 +14,7 @@ public final class UserTestData {
   public static UserDetails getUserDetails() {
     return new ObjectMapper()
       .readValue(new File(System.getProperty("user.dir") + "/src/test/resources/requests/post-user.json"), UserDetails.class)
-      .setName("Amuthan");
+      .setName("GP");
 
   }
 }
